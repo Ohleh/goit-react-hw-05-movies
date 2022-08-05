@@ -15,9 +15,12 @@ export async function getPopularFilmsHome() {
   const { response } = await axios.get(
     'https://api.themoviedb.org/3/movie/550?api_key=56df3cdaf4656bc2a0c7d7aaff77ded0'
   );
-  console.log(response);
+
   return response;
 }
+
+getPopularFilmsHome().then(res => console.log(res));
+console.log(getPopularFilmsHome());
 
 const exprt = { getPopularFilmsHome };
 

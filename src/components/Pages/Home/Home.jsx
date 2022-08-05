@@ -8,12 +8,18 @@ const Home = () => {
     getAPI.getPopularFilmsHome().then(getTrendFilms);
   }, []);
 
+  console.log(trendFilms);
+
   return (
-    <ul>
-      {trendFilms.map(trendFilm => (
-        <li>{trendFilm} fn</li>
-      ))}
-    </ul>
+    <>
+      <h3> сторінка компонента HomeView</h3>
+      {/* <ul>
+        <p>ddd</p>
+        {trendFilms.map(trendFilm => (
+          <li>{trendFilm} fn</li>
+        ))}
+      </ul> */}
+    </>
   );
 };
 
