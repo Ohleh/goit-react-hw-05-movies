@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <ul>
       {trendFilms.map(trendFilm => (
-        <li>{trendFilm}</li>
+        <li>{trendFilm} fn</li>
       ))}
     </ul>
   );

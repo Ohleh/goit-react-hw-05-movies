@@ -1,19 +1,19 @@
 import axios from 'axios';
 
 // const API_KEY = '56df3cdaf4656bc2a0c7d7aaff77ded0';
-// axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
+// axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 // axios.defaults.params = {
 //   key: API_KEY,
-//   language: 'en-US',
-//   include_adult: 'false',
-//     page: 1,
-//     per_page: 12,
+//     language: 'en-US',
+//     include_adult: 'false',
+//       page: 1,
+//       per_page: 12,
 // };
 
 export async function getPopularFilmsHome() {
-  const response = await axios.get(
-    'https://api.themoviedb.org/3/trending/all/day?api_key=56df3cdaf4656bc2a0c7d7aaff77ded0'
+  const { response } = await axios.get(
+    'https://api.themoviedb.org/3/movie/550?api_key=56df3cdaf4656bc2a0c7d7aaff77ded0'
   );
   console.log(response);
   return response;
