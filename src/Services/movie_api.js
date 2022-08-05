@@ -13,14 +13,18 @@ axios.defaults.params = {
 
 export async function getPopularFilmsHome() {
   const { data } = await axios.get('/trending/all/day');
-  console.log(data.results);
   return data.results;
 }
 
 export async function getSearchMovie(queryMessage) {
   const { data } = await axios.get(`/search/movie?&query=${queryMessage}`);
-  console.log(data);
   return data.results;
+}
+
+export async function getMovieDetiasl(movieId) {
+  const { data } = await axios.get(`/movie/${movieId}`);
+  console.log(data);
+  return data;
 }
 
 // const get = getPopularFilmsHome().then(res => console.log(res));

@@ -19,7 +19,7 @@ const Home = () => {
       } catch (error) {
         setError(error);
       } finally {
-        console.log('finally');
+        console.log('finally Home');
         // setLoading(false);
       }
     }

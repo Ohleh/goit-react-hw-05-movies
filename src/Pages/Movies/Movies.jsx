@@ -12,7 +12,6 @@ const Movies = () => {
     if (queryMessage === '') {
       return;
     }
-    // getSearchMovie(queryMessage).then(setSearchFilms);
     async function getSearch() {
       // setLoading(true);
       try {
