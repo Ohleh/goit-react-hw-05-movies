@@ -1,26 +1,24 @@
 import axios from 'axios';
 
-// const API_KEY = '56df3cdaf4656bc2a0c7d7aaff77ded0';
-// axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+const API_KEY = '56df3cdaf4656bc2a0c7d7aaff77ded0';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
-// axios.defaults.params = {
-//   key: API_KEY,
-//     language: 'en-US',
-//     include_adult: 'false',
-//       page: 1,
-//       per_page: 12,
-// };
+axios.defaults.params = {
+  key: API_KEY,
+  //     language: 'en-US',
+  //     include_adult: 'false',
+  //       page: 1,
+  //       per_page: 12,
+};
 
 export async function getPopularFilmsHome() {
-  const { response } = await axios.get(
-    'https://api.themoviedb.org/3/movie/550?api_key=56df3cdaf4656bc2a0c7d7aaff77ded0'
-  );
-
+  const { response } = await axios.get('/trending/all/day');
+  console.log(response);
   return response;
 }
 
-getPopularFilmsHome().then(res => console.log(res));
-console.log(getPopularFilmsHome());
+// const get = getPopularFilmsHome().then(res => console.log(res));
+// console.log(get);
 
 const exprt = { getPopularFilmsHome };
 
