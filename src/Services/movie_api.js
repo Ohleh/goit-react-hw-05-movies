@@ -4,25 +4,27 @@ const API_KEY = '56df3cdaf4656bc2a0c7d7aaff77ded0';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 axios.defaults.params = {
-  key: API_KEY,
-  //     language: 'en-US',
-  //     include_adult: 'false',
-  //       page: 1,
-  //       per_page: 12,
+  api_key: API_KEY,
+  // language: 'en-US',
+  // include_adult: 'false',
+  page: 1,
+  per_page: 12,
 };
 
 export async function getPopularFilmsHome() {
-  const { response } = await axios.get('/trending/all/day');
-  console.log(response);
-  return response;
+  const { data } = await axios.get('/trending/all/day');
+  console.log(data.results);
+  return data.results;
+}
+
+export async function getSearchMovie(queryMessage) {
+  const { data } = await axios.get(`/search/movie?&query=${queryMessage}`);
+  console.log(data);
+  return data.results;
 }
 
 // const get = getPopularFilmsHome().then(res => console.log(res));
 // console.log(get);
-
-const exprt = { getPopularFilmsHome };
-
-export default exprt;
 
 // https://api.themoviedb.org/3/trending/all/day?api_key=56df3cdaf4656bc2a0c7d7aaff77ded0
 
