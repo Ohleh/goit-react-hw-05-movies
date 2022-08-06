@@ -29,6 +29,7 @@ const Searchbar = ({ onOnSubmit }) => {
           placeholder="Search films"
         />
       </form>
+      <h3>Search Result</h3>
     </>
   );
 };

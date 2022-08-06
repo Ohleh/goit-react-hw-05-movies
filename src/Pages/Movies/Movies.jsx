@@ -1,4 +1,4 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Searchbar from './Searchbar';
 import { getSearchMovie } from '../../Services/movie_api';
@@ -34,6 +34,23 @@ const Movies = () => {
     <>
       {error && <Navigate to="/movies" replace />}
       <Searchbar onOnSubmit={setQueryMessage} />
+      {searchFilms && (
+        <ul>
+          {searchFilms.map(searchFilm => (
+            <li key={searchFilm.id}>
+              <NavLink
+                to={`/movies/${searchFilm.id}`}
+                // to={{
+                //   pathname: `${url}/${searchFilm.id}`,
+                //   state: { from: location },
+                // }}
+              >
+                {searchFilm.title ?? searchFilm.original_name}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 };

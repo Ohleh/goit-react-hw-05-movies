@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 axios.defaults.params = {
   api_key: API_KEY,
-  // language: 'en-US',
+  language: 'en-US',
   // include_adult: 'false',
   page: 1,
   per_page: 12,
@@ -27,24 +27,12 @@ export async function getMovieDetiasl(movieId) {
   return data;
 }
 
-// const get = getPopularFilmsHome().then(res => console.log(res));
-// console.log(get);
-
-// https://api.themoviedb.org/3/trending/all/day?api_key=56df3cdaf4656bc2a0c7d7aaff77ded0
-
-// export async function getReviews(movie_id) {
-//   const response = await axios.get(`${movie_id}/reviews&language=en-US&page=1`);
-//   return response.data;
-// }
-
-// https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<56df3cdaf4656bc2a0c7d7aaff77ded0>>&language=en-US&page=1
-
-// https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
-
-// export async function fetchAuthors() {
-//   const response = await axios.get(`/authors`);
-//   return response.data;
-// }
+export async function getActorscredits(movieId) {
+  const { data } = await axios.get(`/movie/${movieId}/credits`);
+  console.log(data);
+  return data;
+  // https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+}
 
 // Ключ API(v3 auth)
 // 56df3cdaf4656bc2a0c7d7aaff77ded0
