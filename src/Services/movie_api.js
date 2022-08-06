@@ -29,7 +29,6 @@ export async function getMovieDetiasl(movieId) {
 
 export async function getActorsCast(movieId) {
   const { data } = await axios.get(`/movie/${movieId}/credits`);
-  console.log(data);
   return data.cast;
   // https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
 }

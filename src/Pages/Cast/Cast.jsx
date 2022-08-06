@@ -8,7 +8,7 @@ const Cast = () => {
   //   const [queryMessage, setQueryMessage] = useState('');
   const [error, setError] = useState(null);
 
-  console.log(movieId);
+  //   console.log(movieId);
 
   useEffect(() => {
     // getSearchMovie(queryMessage).then(setSearchFilms);
@@ -28,14 +28,17 @@ const Cast = () => {
     //
   }, [movieId]);
 
-  console.log(cast);
+  //   console.log(cast);
   return (
     <>
       {error && <Navigate to="/movies" replace />}
       <ul>
         {cast.map(cst => (
           <li key={cst.cast_id}>
-            <img src={cst.profile_path} alt={cst.name} />
+            <img
+              src={`https://image.tmdb.org/t/p/w200${cst.profile_path}`}
+              alt={cst.name}
+            />
             <p> {cst.name}</p>
             <p>Character: {cst.character}</p>
           </li>

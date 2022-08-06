@@ -34,7 +34,10 @@ const MovieDetails = () => {
     <>
       {error && <Navigate to="/movies" replace />}
       <div>
-        <img src={details.poster_path} alt={details.title} />
+        <img
+          src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
+          alt={details.title}
+        />
         <h1>
           {details.title}({details.release_date})
         </h1>
