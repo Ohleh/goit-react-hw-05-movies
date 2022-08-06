@@ -33,6 +33,12 @@ export async function getActorsCast(movieId) {
   // https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
 }
 
+export async function getReviews(movieId) {
+  const { data } = await axios.get(`/movie/${movieId}/reviews`);
+  return data.cast;
+  // https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
+}
+
 // Ключ API(v3 auth)
 // 56df3cdaf4656bc2a0c7d7aaff77ded0
 
