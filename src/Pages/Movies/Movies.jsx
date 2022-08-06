@@ -28,12 +28,13 @@ const Movies = () => {
     //
   }, [queryMessage]);
 
-  console.log(searchFilms);
+  // console.log(searchFilms);
 
   return (
     <>
       {error && <Navigate to="/movies" replace />}
       <Searchbar onOnSubmit={setQueryMessage} />
+
       {searchFilms && (
         <ul>
           {searchFilms.map(searchFilm => (

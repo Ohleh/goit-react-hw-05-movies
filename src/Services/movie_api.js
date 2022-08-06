@@ -23,14 +23,14 @@ export async function getSearchMovie(queryMessage) {
 
 export async function getMovieDetiasl(movieId) {
   const { data } = await axios.get(`/movie/${movieId}`);
-  console.log(data);
+  // console.log(data);
   return data;
 }
 
-export async function getActorscredits(movieId) {
+export async function getActorsCast(movieId) {
   const { data } = await axios.get(`/movie/${movieId}/credits`);
   console.log(data);
-  return data;
+  return data.cast;
   // https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
 }
 

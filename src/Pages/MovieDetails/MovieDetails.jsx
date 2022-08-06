@@ -1,4 +1,4 @@
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams, Outlet, NavLink } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
 import { getMovieDetiasl } from '../../Services/movie_api';
@@ -8,7 +8,7 @@ const MovieDetails = () => {
   const [details, setDetails] = useState([]);
   const [error, setError] = useState(null);
 
-  console.log(details);
+  //   console.log(details);
 
   useEffect(() => {
     // getSearchMovie(queryMessage).then(setSearchFilms);
@@ -46,6 +46,14 @@ const MovieDetails = () => {
         {/* {details.genres.map(g => (
           <span>{g.name} </span>
         ))} */}
+      </div>
+      {/* <NavLink to="/:movieId/cast">Cast</NavLink>
+      <NavLink to="/:movieId/reviews">Movies</NavLink> */}
+
+      <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink>
+      <NavLink to={`/movies/${movieId}/movies`}>Movies</NavLink>
+      <div>
+        <Outlet />
       </div>
     </>
   );
