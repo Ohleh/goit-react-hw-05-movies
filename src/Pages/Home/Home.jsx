@@ -1,5 +1,5 @@
-import { useState, useEffect, useRouteMatch } from 'react';
-import { Navigate, NavLink, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Navigate, NavLink } from 'react-router-dom';
 import { getPopularFilmsHome } from '../../Services/movie_api';
 
 const Home = () => {
