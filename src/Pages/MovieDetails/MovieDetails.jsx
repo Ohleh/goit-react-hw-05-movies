@@ -52,9 +52,16 @@ const MovieDetails = () => {
       </div>
       {/* <NavLink to="/:movieId/cast">Cast</NavLink>
       <NavLink to="/:movieId/reviews">Movies</NavLink> */}
+      <ul>
+        <li>
+          {' '}
+          <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink>
+        </li>
+        <li>
+          <NavLink to={`/movies/${movieId}/reviews`}>Reviews</NavLink>
+        </li>
+      </ul>
 
-      <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink>
-      <NavLink to={`/movies/${movieId}/movies`}>Movies</NavLink>
       <div>
         <Outlet />
       </div>

@@ -7,6 +7,7 @@ import Header from './Header/Header';
 import Home from '../Pages/Home/Home';
 import MovieDetails from '../Pages/MovieDetails/MovieDetails';
 import Cast from '../Pages/Cast/Cast';
+import Reviews from '../Pages/Reviews/Reviews';
 
 export const App = () => {
   return (
@@ -17,7 +18,7 @@ export const App = () => {
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:movieId" element={<MovieDetails />}>
             <Route path="/movies/:movieId/cast" element={<Cast />} />
-            {/* <Route path="/movies/:movieId/reviews" element={<Reviews />} /> */}
+            <Route path="/movies/:movieId/reviews" element={<Reviews />} />
           </Route>
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
