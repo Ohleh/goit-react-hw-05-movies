@@ -15,7 +15,6 @@ const MovieDetails = () => {
 
   const [details, setDetails] = useState([]);
   const [error, setError] = useState(null);
-  // console.log(location);
 
   useEffect(() => {
     // getSearchMovie(queryMessage).then(setSearchFilms);
@@ -47,22 +46,20 @@ const MovieDetails = () => {
           alt={details.title}
         />
         <h1>
-          {details.title}({details.release_date})
+          {details.title}({details.release_date.slice(0, 4)})
         </h1>
         <p>User Score: {details.vote_count}%</p>
         <h3>Overwiev</h3>
         <p>{details.overview}</p>
         <h3>Genres</h3>
 
-        {/* {details.genres.map(g => (
+        {details.genres.map(g => (
           <span>{g.name} </span>
-        ))} */}
+        ))}
       </div>
-      {/* <NavLink to="/:movieId/cast">Cast</NavLink>
-      <NavLink to="/:movieId/reviews">Movies</NavLink> */}
+
       <ul>
         <li>
-          {' '}
           <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink>
         </li>
         <li>
