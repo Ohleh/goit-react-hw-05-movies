@@ -15,16 +15,16 @@ const Movies = () => {
   const [searchFilms, setSearchFilms] = useState([]);
   const [queryMessage, setQueryMessage] = useState('');
   const [error, setError] = useState(null);
-  console.log(location);
 
   useEffect(() => {
-    const film = searchParams.get('query');
-    if (!film) return;
+    const queryMessage = searchParams.get('query');
+    console.log(queryMessage);
+    if (!queryMessage) return;
 
     async function getSearch() {
       // setLoading(true);
       try {
-        const data = await getSearchMovie(film);
+        const data = await getSearchMovie(queryMessage);
         setSearchFilms(data);
       } catch (error) {
         setError(error);
@@ -38,8 +38,8 @@ const Movies = () => {
     //
   }, [searchParams]);
 
-  const onHandle = query => {
-    setSearchParams({ query: query });
+  const onHandle = queryMessage => {
+    setSearchParams({ query: queryMessage });
     setQueryMessage(searchParams.get('query'));
   };
 
