@@ -1,4 +1,9 @@
-import { Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import {
+  Navigate,
+  NavLink,
+  useLocation,
+  useSearchParams,
+} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Searchbar from './Searchbar';
 import { getSearchMovie } from '../../Services/movie_api';
@@ -6,19 +11,20 @@ import { getSearchMovie } from '../../Services/movie_api';
 const Movies = () => {
   // const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [searchFilms, setSearchFilms] = useState([]);
   const [queryMessage, setQueryMessage] = useState('');
   const [error, setError] = useState(null);
   console.log(location);
 
   useEffect(() => {
-    if (queryMessage === '') {
-      return;
-    }
+    const film = searchParams.get('query');
+    if (!film) return;
+
     async function getSearch() {
       // setLoading(true);
       try {
-        const data = await getSearchMovie(queryMessage);
+        const data = await getSearchMovie(film);
         setSearchFilms(data);
       } catch (error) {
         setError(error);
@@ -30,20 +36,20 @@ const Movies = () => {
     getSearch();
 
     //
-  }, [queryMessage]);
+  }, [searchParams]);
 
-  // console.log(searchFilms);
-  console.log(queryMessage);
+  const onHandle = query => {
+    setSearchParams({ query: query });
+    setQueryMessage(searchParams.get('query'));
+  };
 
   return (
     <>
       {error && <Navigate to="/movies" replace />}
-      <Searchbar onOnSubmit={setQueryMessage} />
-      {/* <NavLink to={`/movies?query=${queryMessage}`}> */}
-      {/* {searchFilms && <NavLink to={`/movies?query=${queryMessage}`}></NavLink>} */}
+      <Searchbar onOnSubmit={onHandle} />
+
       {searchFilms && (
         <ul>
-          {/* <NavLink to={`/movies?query=${queryMessage}`}></NavLink> */}
           {searchFilms.map(searchFilm => (
             <li key={searchFilm.id}>
               <NavLink

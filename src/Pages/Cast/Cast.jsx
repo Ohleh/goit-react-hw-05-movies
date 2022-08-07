@@ -7,6 +7,7 @@ const Cast = () => {
 
   const [cast, setCast] = useState([]);
   const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(null);
 
   useEffect(() => {
     // getSearchMovie(queryMessage).then(setSearchFilms);
@@ -40,7 +41,7 @@ const Cast = () => {
                 alt={cst.name}
               />
               <p> {cst.name}</p>
-              <p>Character: {cst.character}</p>
+              <p>Character: {cst.character ?? 'individual character'}</p>
             </li>
           ))}
         </ul>

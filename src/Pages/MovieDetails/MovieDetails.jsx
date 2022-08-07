@@ -37,8 +37,6 @@ const MovieDetails = () => {
 
   const goBackLink = location?.state?.from ?? '/';
 
-  //   console.log(details.id);
-
   return (
     <>
       {error && <Navigate to="/movies" replace />}

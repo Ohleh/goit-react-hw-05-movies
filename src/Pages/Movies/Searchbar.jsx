@@ -1,4 +1,4 @@
-// import { NavLink, useLocation } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
 const Searchbar = ({ onOnSubmit }) => {
