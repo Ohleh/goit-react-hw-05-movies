@@ -35,6 +35,7 @@ export async function getActorsCast(movieId) {
 
 export async function getReviews(movieId) {
   const { data } = await axios.get(`/movie/${movieId}/reviews`);
+  console.log(data);
   return data.results;
   // https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
 }

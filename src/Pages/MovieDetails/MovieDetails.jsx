@@ -15,7 +15,7 @@ const MovieDetails = () => {
 
   const [details, setDetails] = useState([]);
   const [error, setError] = useState(null);
-  console.log(location);
+  // console.log(location);
 
   useEffect(() => {
     // getSearchMovie(queryMessage).then(setSearchFilms);

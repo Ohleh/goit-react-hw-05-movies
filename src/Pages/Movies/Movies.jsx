@@ -13,10 +13,10 @@ const Movies = () => {
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchFilms, setSearchFilms] = useState([]);
-  const [queryMessage, setQueryMessage] = useState('');
+  // const [queryMessage, setQueryMessage] = useState('');
   const [error, setError] = useState(null);
 
-  console.log(queryMessage);
+  // console.log(queryMessage);
 
   useEffect(() => {
     const film = searchParams.get('query');
@@ -41,7 +41,7 @@ const Movies = () => {
 
   const onHandle = queryMessage => {
     setSearchParams({ query: queryMessage });
-    setQueryMessage(searchParams.get('query'));
+    // setQueryMessage(searchParams.get('query'));
   };
 
   return (

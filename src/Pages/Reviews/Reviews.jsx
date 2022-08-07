@@ -28,11 +28,12 @@ const Cast = () => {
     //
   }, [movieId]);
 
-  //   console.log(reviews);
+  console.log(reviews);
   return (
     <>
       {error && <Navigate to="/movies" replace />}
-      {!reviews ? (
+
+      {reviews.length === 0 ? (
         <p>We don`t have any reviews on this movie</p>
       ) : (
         <ul>
@@ -44,7 +45,6 @@ const Cast = () => {
           ))}
         </ul>
       )}
-
       {/* <Searchbar onOnSubmit={setQueryMessage} />
 
       {searchFilms && (
