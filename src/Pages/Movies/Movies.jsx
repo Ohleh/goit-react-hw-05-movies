@@ -1,12 +1,15 @@
-import { Navigate, NavLink } from 'react-router-dom';
+import { Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Searchbar from './Searchbar';
 import { getSearchMovie } from '../../Services/movie_api';
 
 const Movies = () => {
+  // const navigate = useNavigate();
+  const location = useLocation();
   const [searchFilms, setSearchFilms] = useState([]);
   const [queryMessage, setQueryMessage] = useState('');
   const [error, setError] = useState(null);
+  console.log(location);
 
   useEffect(() => {
     if (queryMessage === '') {
@@ -25,17 +28,18 @@ const Movies = () => {
       }
     }
     getSearch();
+
     //
   }, [queryMessage]);
 
   // console.log(searchFilms);
-  // console.log(queryMessage);
+  console.log(queryMessage);
 
   return (
     <>
       {error && <Navigate to="/movies" replace />}
       <Searchbar onOnSubmit={setQueryMessage} />
-      {/* <NavLink to={`/movies?query=${queryMessage}`}>1</NavLink> */}
+      {/* <NavLink to={`/movies?query=${queryMessage}`}> */}
       {/* {searchFilms && <NavLink to={`/movies?query=${queryMessage}`}></NavLink>} */}
       {searchFilms && (
         <ul>
@@ -44,6 +48,7 @@ const Movies = () => {
             <li key={searchFilm.id}>
               <NavLink
                 to={`/movies/${searchFilm.id}`}
+                state={{ from: location }} // для goBackLink в MovieDetails
                 // to={{
                 //   pathname: `${url}/${searchFilm.id}`,
                 //   state: { from: location },
@@ -55,6 +60,8 @@ const Movies = () => {
           ))}
         </ul>
       )}
+      {/* <Outlet /> */}
+      {/* </NavLink>  */}
     </>
   );
 };

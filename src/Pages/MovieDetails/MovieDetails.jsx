@@ -1,14 +1,21 @@
-import { Navigate, useParams, Outlet, NavLink } from 'react-router-dom';
+import {
+  Navigate,
+  useParams,
+  Outlet,
+  NavLink,
+  useLocation,
+} from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
 import { getMovieDetiasl } from '../../Services/movie_api';
 
 const MovieDetails = () => {
+  const location = useLocation();
   const { movieId } = useParams();
+
   const [details, setDetails] = useState([]);
   const [error, setError] = useState(null);
-
-  //   console.log(details);
+  console.log(location);
 
   useEffect(() => {
     // getSearchMovie(queryMessage).then(setSearchFilms);
@@ -28,11 +35,14 @@ const MovieDetails = () => {
     //
   }, [movieId]);
 
+  const goBackLink = location?.state?.from ?? '/';
+
   //   console.log(details.id);
 
   return (
     <>
       {error && <Navigate to="/movies" replace />}
+      <NavLink to={goBackLink}>Go Back</NavLink>
       <div>
         <img
           src={`https://image.tmdb.org/t/p/w400${details.poster_path}`}

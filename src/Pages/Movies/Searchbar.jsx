@@ -1,7 +1,9 @@
-// import { NavLink } from 'react-router-dom';
+// import { NavLink, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 const Searchbar = ({ onOnSubmit }) => {
+  // const location = useLocation();
+
   const [queryMessage, setQueryMessage] = useState('');
 
   const handleChange = e => {
@@ -14,13 +16,16 @@ const Searchbar = ({ onOnSubmit }) => {
     setQueryMessage('');
   };
 
+  // console.log(location);
+
   return (
     <>
-      {/* {queryMessage && <NavLink to={`/movies?query=${queryMessage}`} />} */}
       <form onSubmit={handleSubmit}>
+        {/* <NavLink to={`/movies?query=${queryMessage}`}> */}
         <button type="submit" disabled={queryMessage === ''}>
           🔍
         </button>
+        {/* </NavLink> */}
         <input
           value={queryMessage}
           onChange={handleChange}
@@ -30,7 +35,6 @@ const Searchbar = ({ onOnSubmit }) => {
           placeholder="Search films"
         />
       </form>
-      {/* </NavLink> */}
     </>
   );
 };

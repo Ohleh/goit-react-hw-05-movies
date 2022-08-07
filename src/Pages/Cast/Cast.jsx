@@ -4,11 +4,9 @@ import { getActorsCast } from '../../Services/movie_api';
 
 const Cast = () => {
   const { movieId } = useParams();
-  const [cast, setCast] = useState([]);
-  //   const [queryMessage, setQueryMessage] = useState('');
-  const [error, setError] = useState(null);
 
-  //   console.log(movieId);
+  const [cast, setCast] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     // getSearchMovie(queryMessage).then(setSearchFilms);
@@ -28,7 +26,6 @@ const Cast = () => {
     //
   }, [movieId]);
 
-  //   console.log(cast);
   return (
     <>
       {error && <Navigate to="/movies" replace />}
