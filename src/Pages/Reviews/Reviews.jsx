@@ -32,14 +32,18 @@ const Cast = () => {
   return (
     <>
       {error && <Navigate to="/movies" replace />}
-      <ul>
-        {reviews.map(review => (
-          <li key={review.id}>
-            <h5>Author: {review.author}</h5>
-            <p>{review.content}</p>
-          </li>
-        ))}
-      </ul>
+      {!reviews ? (
+        <p>We don`t have any reviews on this movie</p>
+      ) : (
+        <ul>
+          {reviews.map(review => (
+            <li key={review.id}>
+              <h5>Author: {review.author}</h5>
+              <p>{review.content}</p>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {/* <Searchbar onOnSubmit={setQueryMessage} />
 

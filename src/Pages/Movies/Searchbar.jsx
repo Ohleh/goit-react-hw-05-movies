@@ -1,3 +1,4 @@
+// import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 const Searchbar = ({ onOnSubmit }) => {
@@ -15,11 +16,11 @@ const Searchbar = ({ onOnSubmit }) => {
 
   return (
     <>
+      {/* {queryMessage && <NavLink to={`/movies?query=${queryMessage}`} />} */}
       <form onSubmit={handleSubmit}>
         <button type="submit" disabled={queryMessage === ''}>
           🔍
         </button>
-
         <input
           value={queryMessage}
           onChange={handleChange}
@@ -29,6 +30,7 @@ const Searchbar = ({ onOnSubmit }) => {
           placeholder="Search films"
         />
       </form>
+      {/* </NavLink> */}
     </>
   );
 };

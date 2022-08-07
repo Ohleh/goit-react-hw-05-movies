@@ -31,6 +31,7 @@ const Home = () => {
     <>
       {error && <Navigate to="/" replace />}
       <ul>
+        <h3>Trending today</h3>
         {trendFilms.map(trendFilm => (
           <li key={trendFilm.id}>
             <NavLink

@@ -32,18 +32,22 @@ const Cast = () => {
   return (
     <>
       {error && <Navigate to="/movies" replace />}
-      <ul>
-        {cast.map(cst => (
-          <li key={cst.cast_id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w200${cst.profile_path}`}
-              alt={cst.name}
-            />
-            <p> {cst.name}</p>
-            <p>Character: {cst.character}</p>
-          </li>
-        ))}
-      </ul>
+      {!cast ? (
+        <p>We don`t have any cast on this movie</p>
+      ) : (
+        <ul>
+          {cast.map(cst => (
+            <li key={cst.cast_id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w200${cst.profile_path}`}
+                alt={cst.name}
+              />
+              <p> {cst.name}</p>
+              <p>Character: {cst.character}</p>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {/* <Searchbar onOnSubmit={setQueryMessage} />
 

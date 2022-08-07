@@ -29,14 +29,17 @@ const Movies = () => {
   }, [queryMessage]);
 
   // console.log(searchFilms);
+  // console.log(queryMessage);
 
   return (
     <>
       {error && <Navigate to="/movies" replace />}
       <Searchbar onOnSubmit={setQueryMessage} />
-
+      {/* <NavLink to={`/movies?query=${queryMessage}`}>1</NavLink> */}
+      {/* {searchFilms && <NavLink to={`/movies?query=${queryMessage}`}></NavLink>} */}
       {searchFilms && (
         <ul>
+          {/* <NavLink to={`/movies?query=${queryMessage}`}></NavLink> */}
           {searchFilms.map(searchFilm => (
             <li key={searchFilm.id}>
               <NavLink
