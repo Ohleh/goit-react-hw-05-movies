@@ -16,15 +16,16 @@ const Movies = () => {
   const [queryMessage, setQueryMessage] = useState('');
   const [error, setError] = useState(null);
 
+  console.log(queryMessage);
+
   useEffect(() => {
-    const queryMessage = searchParams.get('query');
-    console.log(queryMessage);
-    if (!queryMessage) return;
+    const film = searchParams.get('query');
+    if (!film) return;
 
     async function getSearch() {
       // setLoading(true);
       try {
-        const data = await getSearchMovie(queryMessage);
+        const data = await getSearchMovie(film);
         setSearchFilms(data);
       } catch (error) {
         setError(error);
