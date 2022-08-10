@@ -16,8 +16,6 @@ const MovieDetails = () => {
   const [details, setDetails] = useState([]);
   const [error, setError] = useState(null);
 
-  console.log(details.genres);
-
   useEffect(() => {
     // getSearchMovie(queryMessage).then(setSearchFilms);
     async function getDetial() {
@@ -48,16 +46,16 @@ const MovieDetails = () => {
           alt={details.title}
         />
         <h1>
-          {details.title}({details.release_date})
+          {details.title}(
+          {details.release_date && details.release_date.split('-')[0]})
         </h1>
         <p>User Score: {details.vote_count}%</p>
         <h3>Overwiev</h3>
         <p>{details.overview}</p>
         <h3>Genres</h3>
 
-        {/* {details.genres.map(g => (
-          <span>{g.name} </span>
-        ))} */}
+        {details.genres &&
+          details.genres.map(g => <span key={g.name}>{g.name} </span>)}
       </div>
 
       <ul>
