@@ -4,7 +4,7 @@ import { getActorsCast } from '../../Services/movie_api';
 
 const Cast = () => {
   const { movieId } = useParams();
-
+  // const location = useLocation();
   const [cast, setCast] = useState([]);
   const [error, setError] = useState(null);
   // const [loading, setLoading] = useState(null);

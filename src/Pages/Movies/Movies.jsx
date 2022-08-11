@@ -13,10 +13,7 @@ const Movies = () => {
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchFilms, setSearchFilms] = useState([]);
-  // const [queryMessage, setQueryMessage] = useState('');
   const [error, setError] = useState(null);
-
-  // console.log(queryMessage);
 
   useEffect(() => {
     const film = searchParams.get('query');
@@ -56,10 +53,6 @@ const Movies = () => {
               <NavLink
                 to={`/movies/${searchFilm.id}`}
                 state={{ from: location }} // для goBackLink в MovieDetails
-                // to={{
-                //   pathname: `${url}/${searchFilm.id}`,
-                //   state: { from: location },
-                // }}
               >
                 {searchFilm.title ?? searchFilm.original_name}
               </NavLink>
@@ -67,8 +60,6 @@ const Movies = () => {
           ))}
         </ul>
       )}
-      {/* <Outlet /> */}
-      {/* </NavLink>  */}
     </>
   );
 };

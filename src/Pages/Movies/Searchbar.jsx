@@ -1,4 +1,3 @@
-// import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
 const Searchbar = ({ onOnSubmit }) => {
@@ -16,16 +15,13 @@ const Searchbar = ({ onOnSubmit }) => {
     setQueryMessage('');
   };
 
-  // console.log(location);
-
   return (
     <>
       <form onSubmit={handleSubmit}>
-        {/* <NavLink to={`/movies?query=${queryMessage}`}> */}
         <button type="submit" disabled={queryMessage === ''}>
           🔍
         </button>
-        {/* </NavLink> */}
+
         <input
           value={queryMessage}
           onChange={handleChange}

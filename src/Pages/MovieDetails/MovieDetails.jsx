@@ -5,14 +5,13 @@ import {
   NavLink,
   useLocation,
 } from 'react-router-dom';
-
+import { MovieDetailsRender } from './MovieDetailsRender';
 import { useState, useEffect } from 'react';
 import { getMovieDetiasl } from '../../Services/movie_api';
 
 const MovieDetails = () => {
   const location = useLocation();
   const { movieId } = useParams();
-
   const [details, setDetails] = useState([]);
   const [error, setError] = useState(null);
 
@@ -34,36 +33,30 @@ const MovieDetails = () => {
     //
   }, [movieId]);
 
-  const goBackLink = location?.state?.from ?? '/';
+  const goBackLink = location?.state?.from ?? `/`;
 
   return (
     <>
       {error && <Navigate to="/movies" replace />}
       <NavLink to={goBackLink}>Go Back</NavLink>
-      <div>
-        <img
-          src={`https://image.tmdb.org/t/p/w400${details.poster_path}`}
-          alt={details.title}
-        />
-        <h1>
-          {details.title}(
-          {details.release_date && details.release_date.split('-')[0]})
-        </h1>
-        <p>User Score: {details.vote_count}%</p>
-        <h3>Overwiev</h3>
-        <p>{details.overview}</p>
-        <h3>Genres</h3>
-
-        {details.genres &&
-          details.genres.map(g => <span key={g.name}>{g.name} </span>)}
-      </div>
+      <MovieDetailsRender details={details} />
 
       <ul>
         <li>
-          <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink>
+          <NavLink
+            to={`/movies/${movieId}/cast`}
+            state={{ from: location?.state?.from }}
+          >
+            Cast
+          </NavLink>
         </li>
         <li>
-          <NavLink to={`/movies/${movieId}/reviews`}>Reviews</NavLink>
+          <NavLink
+            to={`/movies/${movieId}/reviews`}
+            state={{ from: location?.state?.from }}
+          >
+            Reviews
+          </NavLink>
         </li>
       </ul>
 

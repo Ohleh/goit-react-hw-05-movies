@@ -3,8 +3,22 @@ import { NavLink, Outlet } from 'react-router-dom';
 const Header = () => {
   return (
     <>
-      <NavLink to="/Home">Home</NavLink>
-      <NavLink to="/movies">Movies</NavLink>
+      <NavLink
+        to="/"
+        style={({ isActive }) =>
+          isActive ? { color: 'red' } : { color: 'blue' }
+        }
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/movies"
+        style={({ isActive }) =>
+          isActive ? { color: 'red' } : { color: 'blue' }
+        }
+      >
+        Movies
+      </NavLink>
       <main>
         <Outlet />
       </main>

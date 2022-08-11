@@ -4,7 +4,6 @@ import { getPopularFilmsHome } from '../../Services/movie_api';
 
 const Home = () => {
   // const location = useLocation();
-  // const { url } = useRouteMatch();
 
   const [trendFilms, setTrendFilms] = useState([]);
   const [error, setError] = useState(null);
@@ -34,13 +33,7 @@ const Home = () => {
         <h3>Trending today</h3>
         {trendFilms.map(trendFilm => (
           <li key={trendFilm.id}>
-            <NavLink
-              to={`/movies/${trendFilm.id}`}
-              // to={{
-              //   pathname: `${url}/${trendFilm.id}`,
-              //   state: { from: location },
-              // }}
-            >
+            <NavLink to={`/movies/${trendFilm.id}`}>
               {trendFilm.title ?? trendFilm.original_name}
             </NavLink>
           </li>
