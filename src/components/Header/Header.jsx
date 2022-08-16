@@ -19,6 +19,7 @@ const Header = () => {
       >
         Movies
       </NavLink>
+      <hr />
       <main>
         <Outlet />
       </main>
